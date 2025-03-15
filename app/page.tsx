@@ -106,7 +106,7 @@ export default function Home() {
 
           {/* Контент поверх */}
           <div className="relative z-10 text-center px-6">
-            <h1 className="text-5xl font-bold mb-10">
+            <h1 className="text-6xl font-extrabold mb-10">
               Узнайте будущее вашего ребенка
             </h1>
             <p className="mb-8">
@@ -219,7 +219,7 @@ export default function Home() {
           <h3 className="text-4xl px-32 text-center pb-8">
             Искусственный интеллект анализирует данные и точно предсказывает
             будущее жизни вашего ребенка. Узнайте, какое образование, карьеру и
-            уровень счасться он сможет получить!
+            уровень счастья он сможет получить!
           </h3>
           <p className="text-center text-[20px] font-extralight italic pb-12">
             Система анализирует доступные параметры
