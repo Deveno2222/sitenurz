@@ -118,13 +118,13 @@ export default function Home() {
               {/* Карточка "Образование" */}
               <div className="group relative w-64 h-32">
                 <div className="w-full h-full px-6 py-4 border border-[#D8D0C1] text-[#2D3748] bg-[#fee5cf] rounded-lg shadow-md cursor-pointer hover:bg-[#fdd8b5] transition-all duration-300 transform hover:scale-105 hover:shadow-lg flex flex-col items-center justify-center gap-2">
-                  <FaGraduationCap className="w-8 h-8 text-[#2D3748]" />{" "}
-                  {/* Иконка */}
+                  <FaGraduationCap className="w-8 h-8 text-[#2D3748]" />
                   <span className="uppercase tracking-wide font-semibold text-center">
                     ОБРАЗОВАНИЕ
                   </span>
                 </div>
-                <div className="absolute top-full mt-2 w-64 p-4 bg-white text-black rounded-md shadow-lg opacity-0 group-hover:opacity-100 transition-opacity duration-200">
+                {/* Тултип */}
+                <div className="absolute top-full mt-2 w-64 p-4 bg-white text-black rounded-md shadow-lg opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none">
                   Узнайте, какое образование лучше всего подойдет вашему
                   ребенку.
                 </div>
@@ -133,13 +133,13 @@ export default function Home() {
               {/* Карточка "Карьера" */}
               <div className="group relative w-64 h-32">
                 <div className="w-full h-full px-6 py-4 border border-[#C0B8A9] text-[#2D3748] bg-[#fee5cf] rounded-lg shadow-md cursor-pointer hover:bg-[#fdd8b5] transition-all duration-300 transform hover:scale-105 hover:shadow-lg flex flex-col items-center justify-center gap-2">
-                  <FaBriefcase className="w-8 h-8 text-[#2D3748]" />{" "}
-                  {/* Иконка */}
+                  <FaBriefcase className="w-8 h-8 text-[#2D3748]" />
                   <span className="uppercase tracking-wide font-semibold text-center">
                     КАРЬЕРА
                   </span>
                 </div>
-                <div className="absolute top-full mt-2 w-64 p-4 bg-white text-black rounded-md shadow-lg opacity-0 group-hover:opacity-100 transition-opacity duration-200">
+                {/* Тултип */}
+                <div className="absolute top-full mt-2 w-64 p-4 bg-white text-black rounded-md shadow-lg opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none">
                   Узнайте, какая карьера будет наиболее успешной для вашего
                   ребенка.
                 </div>
@@ -148,12 +148,13 @@ export default function Home() {
               {/* Карточка "Счастье" */}
               <div className="group relative w-64 h-32">
                 <div className="w-full h-full px-6 py-4 border border-[#A89F91] text-[#2D3748] bg-[#fee5cf] rounded-lg shadow-md cursor-pointer hover:bg-[#fdd8b5] transition-all duration-300 transform hover:scale-105 hover:shadow-lg flex flex-col items-center justify-center gap-2">
-                  <FaSmile className="w-8 h-8 text-[#2D3748]" /> {/* Иконка */}
+                  <FaSmile className="w-8 h-8 text-[#2D3748]" />
                   <span className="uppercase tracking-wide font-semibold text-center">
                     СЧАСТЬЕ
                   </span>
                 </div>
-                <div className="absolute top-full mt-2 w-64 p-4 bg-white text-black rounded-md shadow-lg opacity-0 group-hover:opacity-100 transition-opacity duration-200">
+                {/* Тултип */}
+                <div className="absolute top-full mt-2 w-64 p-4 bg-white text-black rounded-md shadow-lg opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none">
                   Узнайте, что принесет счастье вашему ребенку в будущем.
                 </div>
               </div>
