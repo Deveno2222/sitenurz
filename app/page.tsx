@@ -1,103 +1,263 @@
+"use client";
 import Image from "next/image";
+import bgImage from "../public/756230866806840.jpg";
+import { useEffect, useState } from "react";
+import { useRouter } from "next/navigation";
+import {
+  PiggyBank,
+  GraduationCap,
+  Home as HomeIcon,
+  TrendingUp,
+} from "lucide-react";
 
 export default function Home() {
-  return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm/6 text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-[family-name:var(--font-geist-mono)] font-semibold">
-              app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+  const [isLoading, setIsLoading] = useState(false);
+  const router = useRouter();
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+  useEffect(() => {
+    let timer: string | number | NodeJS.Timeout | undefined;
+    if (isLoading) {
+      timer = setTimeout(() => {
+        router.push("/notfound");
+      }, 10000);
+    }
+
+    return () => clearTimeout(timer);
+  }, [isLoading, router]);
+
+  const cards = [
+    {
+      id: 1,
+      icon: <PiggyBank size={48} />,
+      text: "Уровень накоплений и финансовые резервы семьи",
+    },
+    {
+      id: 2,
+      icon: <GraduationCap size={48} />,
+      text: "Качество и доступность образования в Казахстане",
+    },
+    {
+      id: 3,
+      icon: <HomeIcon size={48} />,
+      text: "Экономическая среда и уровень жизни в вашем регионе",
+    },
+    {
+      id: 4,
+      icon: <TrendingUp size={48} />,
+      text: "Рыночные тренды и перспективы профессии",
+    },
+  ];
+
+  return (
+    <>
+      <header className="h-20 bg-background shadow-sm">
+        <div className="relative flex justify-between items-center h-full container mx-auto px-6">
+          {/* Навигация */}
+          <nav className="flex gap-6 flex-1">
+            {["Главная", "О нас", "Контакты"].map((item) => (
+              <button
+                key={item}
+                className="relative px-4 py-2 text-gray-700 hover:bg-gray-200 rounded-lg transition-colors
+           after:absolute after:bottom-0 after:left-1/2 after:w-0 after:h-[2px] after:bg-primary
+           after:transition-all after:duration-300 after:ease-in-out after:-translate-x-1/2
+           hover:after:w-full cursor-pointer"
+              >
+                {item}
+              </button>
+            ))}
+          </nav>
+
+          {/* Логотип (по центру) */}
+          <div className="absolute left-1/2 -translate-x-1/2 text-xl font-semibold text-gray-900 cursor-pointer">
+            FutureScan
+          </div>
+
+          {/* Профиль */}
+          <div className="flex-1 flex justify-end">
+            <button
+              className="relative px-4 py-2 text-gray-700 hover:bg-gray-200 rounded-lg transition-colors
+           after:absolute after:bottom-0 after:left-1/2 after:w-0 after:h-[2px] after:bg-primary
+           after:transition-all after:duration-300 after:ease-in-out after:-translate-x-1/2
+           hover:after:w-full cursor-pointer"
+            >
+              Профиль
+            </button>
+          </div>
+        </div>
+      </header>
+
+      <main className="container mx-auto mt-8">
+        <div className="relative min-h-[700px] rounded-2xl flex flex-col justify-center items-center text-white overflow-hidden">
+          {/* Фоновое изображение с блюром */}
+          <Image
+            src={bgImage}
+            alt="Фон"
+            layout="fill"
+            objectFit="cover"
+            className="absolute inset-0 w-full h-full blur-xs brightness-50 sepia-[0.3]"
+          />
+          {/* Наложение полупрозрачного темного слоя */}
+          <div className="absolute inset-0 bg-black/40"></div>
+
+          {/* Контент поверх */}
+          <div className="relative z-10 text-center px-6">
+            <h1 className="text-5xl font-bold mb-10">
+              Узнайте будущее вашего ребенка
+            </h1>
+            <p className="mb-8">
+              Проанализируйте и будьте в курсе, что ждет вашего ребенка в
+              будущем.
+            </p>
+            <p className="pb-20 font-light text-[20px] flex flex-col sm:flex-row justify-center items-center gap-4">
+              <span
+                className="px-4 py-2 border border-blue-500 text-blue-900 bg-blue-100/50 rounded-md shadow-md uppercase tracking-wide 
+    transition-colors duration-300 ease-in-out hover:bg-blue-500 hover:text-white hover:border-blue-700 cursor-pointer"
+              >
+                ОБРАЗОВАНИЕ
+              </span>
+              <span
+                className="px-4 py-2 border border-red-500 text-red-900 bg-red-100/50 rounded-md shadow-md uppercase tracking-wide 
+    transition-colors duration-300 ease-in-out hover:bg-red-500 hover:text-white hover:border-red-700 cursor-pointer"
+              >
+                КАРЬЕРА
+              </span>
+              <span
+                className="px-4 py-2 border border-green-500 text-green-900 bg-green-100/50 rounded-md shadow-md uppercase tracking-wide 
+    transition-colors duration-300 ease-in-out hover:bg-green-500 hover:text-white hover:border-green-700 cursor-pointer"
+              >
+                СЧАСТЬЕ
+              </span>
+            </p>
+
+            <button
+              onClick={() => setIsLoading(!isLoading)}
+              className="w-56 px-8 py-3 bg-[#81c27e] text-black rounded-2xl 
+  hover:bg-[#759b73] active:scale-95 transition-all 
+  duration-200 ease-in-out shadow-lg cursor-pointer flex justify-center items-center gap-2 mx-auto"
+            >
+              {isLoading ? (
+                <span className="flex items-center">
+                  Загрузка
+                  <span
+                    className="dot"
+                    style={{
+                      animation: "blink 1.5s infinite",
+                      animationDelay: "0s",
+                    }}
+                  >
+                    .
+                  </span>
+                  <span
+                    className="dot"
+                    style={{
+                      animation: "blink 1.5s infinite",
+                      animationDelay: "0.3s",
+                    }}
+                  >
+                    .
+                  </span>
+                  <span
+                    className="dot"
+                    style={{
+                      animation: "blink 1.5s infinite",
+                      animationDelay: "0.6s",
+                    }}
+                  >
+                    .
+                  </span>
+                </span>
+              ) : (
+                "Загрузить будущее"
+              )}
+
+              <style>
+                {`
+      @keyframes blink {
+        0%, 100% { opacity: 0; }
+        50% { opacity: 1; }
+      }
+    `}
+              </style>
+            </button>
+          </div>
         </div>
       </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
+
+      <div className="container mx-auto mt-40 h-[1000px]">
+        <div className="flex flex-col">
+          <h3 className="text-4xl px-32 text-center pb-8">
+            Искусственный интеллект анализирует данные и точно предсказывает
+            будущее жизни вашего ребенка. Узнайте, какое образование, карьеру и
+            уровень счасться он сможет получить!
+          </h3>
+          <p className="text-center text-[20px] font-extralight italic pb-12">
+            Система анализирует доступные параметры
+          </p>
+
+          <div className="flex flex-wrap justify-center gap-6 p-6 pb-20">
+            {cards.map((card) => (
+              <div
+                key={card.id}
+                className="w-72 bg-white rounded-2xl shadow-lg overflow-hidden transition-transform hover:scale-105 flex flex-col items-center p-6"
+              >
+                <div className="text-green-500">{card.icon}</div>
+                <p className="text-gray-600 text-center mt-4">{card.text}</p>
+              </div>
+            ))}
+          </div>
+
+          <button
+            onClick={() => setIsLoading(!isLoading)}
+            className="w-56 px-8 py-3 bg-[#81c27e] text-black rounded-2xl 
+  hover:bg-[#759b73] active:scale-95 transition-all 
+  duration-200 ease-in-out shadow-lg cursor-pointer flex justify-center items-center gap-2 mx-auto"
+          >
+            {isLoading ? (
+              <span className="flex items-center">
+                Загрузка
+                <span
+                  className="dot"
+                  style={{
+                    animation: "blink 1.5s infinite",
+                    animationDelay: "0s",
+                  }}
+                >
+                  .
+                </span>
+                <span
+                  className="dot"
+                  style={{
+                    animation: "blink 1.5s infinite",
+                    animationDelay: "0.3s",
+                  }}
+                >
+                  .
+                </span>
+                <span
+                  className="dot"
+                  style={{
+                    animation: "blink 1.5s infinite",
+                    animationDelay: "0.6s",
+                  }}
+                >
+                  .
+                </span>
+              </span>
+            ) : (
+              "Загрузить будущее"
+            )}
+
+            <style>
+              {`
+      @keyframes blink {
+        0%, 100% { opacity: 0; }
+        50% { opacity: 1; }
+      }
+    `}
+            </style>
+          </button>
+        </div>
+      </div>
+    </>
   );
 }
