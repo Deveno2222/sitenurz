@@ -10,6 +10,12 @@ import {
   TrendingUp,
 } from "lucide-react";
 
+import { FaGraduationCap, FaBriefcase, FaSmile } from "react-icons/fa";
+
+const EducationIcon = FaGraduationCap;
+const CareerIcon = FaBriefcase;
+const HappinessIcon = FaSmile;
+
 export default function Home() {
   const [isLoading, setIsLoading] = useState(false);
   const router = useRouter();
@@ -88,13 +94,12 @@ export default function Home() {
 
       <main className="container mx-auto mt-8">
         <div className="relative min-h-[700px] rounded-2xl flex flex-col justify-center items-center text-white overflow-hidden">
-          {/* Фоновое изображение с блюром */}
           <Image
             src={bgImage}
             alt="Фон"
             layout="fill"
             objectFit="cover"
-            className="absolute inset-0 w-full h-full blur-xs brightness-50 sepia-[0.3]"
+            className="absolute inset-0 w-full h-full blur-xs brightness-50 sepia-[0.3] transform translate-y-0 group-hover:translate-y-[-10%] transition-transform duration-1000 ease-in-out"
           />
           {/* Наложение полупрозрачного темного слоя */}
           <div className="absolute inset-0 bg-black/40"></div>
@@ -109,17 +114,50 @@ export default function Home() {
               будущем.
             </p>
 
-            <p className="pb-20 font-light text-[20px] flex flex-col sm:flex-row justify-center items-center gap-4">
-              <span className="px-4 py-2 border border-[#D8D0C1] text-[#2D3748] bg-[#fee5cf] rounded-md shadow-md uppercase tracking-wide">
-                ОБРАЗОВАНИЕ
-              </span>
-              <span className="px-4 py-2 border border-[#C0B8A9] text-[#2D3748] bg-[#fee5cf] rounded-md shadow-md uppercase tracking-wide">
-                КАРЬЕРА
-              </span>
-              <span className="px-4 py-2 border border-[#A89F91] text-[#2D3748] bg-[#fee5cf] rounded-md shadow-md uppercase tracking-wide">
-                СЧАСТЬЕ
-              </span>
-            </p>
+            <div className="pb-20 font-light text-[20px] flex flex-col sm:flex-row justify-center items-center gap-4">
+              {/* Карточка "Образование" */}
+              <div className="group relative w-64 h-32">
+                <div className="w-full h-full px-6 py-4 border border-[#D8D0C1] text-[#2D3748] bg-[#fee5cf] rounded-lg shadow-md cursor-pointer hover:bg-[#fdd8b5] transition-all duration-300 transform hover:scale-105 hover:shadow-lg flex flex-col items-center justify-center gap-2">
+                  <FaGraduationCap className="w-8 h-8 text-[#2D3748]" />{" "}
+                  {/* Иконка */}
+                  <span className="uppercase tracking-wide font-semibold text-center">
+                    ОБРАЗОВАНИЕ
+                  </span>
+                </div>
+                <div className="absolute top-full mt-2 w-64 p-4 bg-white text-black rounded-md shadow-lg opacity-0 group-hover:opacity-100 transition-opacity duration-200">
+                  Узнайте, какое образование лучше всего подойдет вашему
+                  ребенку.
+                </div>
+              </div>
+
+              {/* Карточка "Карьера" */}
+              <div className="group relative w-64 h-32">
+                <div className="w-full h-full px-6 py-4 border border-[#C0B8A9] text-[#2D3748] bg-[#fee5cf] rounded-lg shadow-md cursor-pointer hover:bg-[#fdd8b5] transition-all duration-300 transform hover:scale-105 hover:shadow-lg flex flex-col items-center justify-center gap-2">
+                  <FaBriefcase className="w-8 h-8 text-[#2D3748]" />{" "}
+                  {/* Иконка */}
+                  <span className="uppercase tracking-wide font-semibold text-center">
+                    КАРЬЕРА
+                  </span>
+                </div>
+                <div className="absolute top-full mt-2 w-64 p-4 bg-white text-black rounded-md shadow-lg opacity-0 group-hover:opacity-100 transition-opacity duration-200">
+                  Узнайте, какая карьера будет наиболее успешной для вашего
+                  ребенка.
+                </div>
+              </div>
+
+              {/* Карточка "Счастье" */}
+              <div className="group relative w-64 h-32">
+                <div className="w-full h-full px-6 py-4 border border-[#A89F91] text-[#2D3748] bg-[#fee5cf] rounded-lg shadow-md cursor-pointer hover:bg-[#fdd8b5] transition-all duration-300 transform hover:scale-105 hover:shadow-lg flex flex-col items-center justify-center gap-2">
+                  <FaSmile className="w-8 h-8 text-[#2D3748]" /> {/* Иконка */}
+                  <span className="uppercase tracking-wide font-semibold text-center">
+                    СЧАСТЬЕ
+                  </span>
+                </div>
+                <div className="absolute top-full mt-2 w-64 p-4 bg-white text-black rounded-md shadow-lg opacity-0 group-hover:opacity-100 transition-opacity duration-200">
+                  Узнайте, что принесет счастье вашему ребенку в будущем.
+                </div>
+              </div>
+            </div>
 
             <button
               onClick={() => setIsLoading(!isLoading)}
