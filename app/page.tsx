@@ -108,23 +108,15 @@ export default function Home() {
               Проанализируйте и будьте в курсе, что ждет вашего ребенка в
               будущем.
             </p>
+
             <p className="pb-20 font-light text-[20px] flex flex-col sm:flex-row justify-center items-center gap-4">
-              <span
-                className="px-4 py-2 border border-blue-500 text-blue-900 bg-blue-100/50 rounded-md shadow-md uppercase tracking-wide 
-    transition-colors duration-300 ease-in-out hover:bg-blue-500 hover:text-white hover:border-blue-700 cursor-pointer"
-              >
+              <span className="px-4 py-2 border border-[#D8D0C1] text-[#2D3748] bg-[#fee5cf] rounded-md shadow-md uppercase tracking-wide">
                 ОБРАЗОВАНИЕ
               </span>
-              <span
-                className="px-4 py-2 border border-red-500 text-red-900 bg-red-100/50 rounded-md shadow-md uppercase tracking-wide 
-    transition-colors duration-300 ease-in-out hover:bg-red-500 hover:text-white hover:border-red-700 cursor-pointer"
-              >
+              <span className="px-4 py-2 border border-[#C0B8A9] text-[#2D3748] bg-[#fee5cf] rounded-md shadow-md uppercase tracking-wide">
                 КАРЬЕРА
               </span>
-              <span
-                className="px-4 py-2 border border-green-500 text-green-900 bg-green-100/50 rounded-md shadow-md uppercase tracking-wide 
-    transition-colors duration-300 ease-in-out hover:bg-green-500 hover:text-white hover:border-green-700 cursor-pointer"
-              >
+              <span className="px-4 py-2 border border-[#A89F91] text-[#2D3748] bg-[#fee5cf] rounded-md shadow-md uppercase tracking-wide">
                 СЧАСТЬЕ
               </span>
             </p>
