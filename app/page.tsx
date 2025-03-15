@@ -56,8 +56,8 @@ export default function Home() {
 
   return (
     <>
-      <header className="h-20 bg-background shadow-sm">
-        <div className="relative flex justify-between items-center h-full container mx-auto px-6">
+      <header className="h-20 shadow-sm">
+        <div className="relative flex justify-between items-center h-full container mx-auto px-6 bg-white">
           {/* Навигация */}
           <nav className="flex gap-6 flex-1">
             {["Главная", "О нас", "Контакты"].map((item) => (
@@ -74,8 +74,17 @@ export default function Home() {
           </nav>
 
           {/* Логотип (по центру) */}
-          <div className="absolute left-1/2 -translate-x-1/2 text-xl font-semibold text-gray-900 cursor-pointer">
-            FutureScan
+          <div className="flex items-center gap-2">
+            <Image
+              src="/brain.svg" 
+              alt="Логотип FutureScan"
+              width={40} 
+              height={40} 
+              className="cursor-pointer" 
+            />
+            <div className="text-xl font-semibold text-gray-900 cursor-pointer">
+              FutureScan
+            </div>
           </div>
 
           {/* Профиль */}
@@ -92,7 +101,7 @@ export default function Home() {
         </div>
       </header>
 
-      <main className="container mx-auto mt-8">
+      <main className="container mx-auto mt-8 bg-white">
         <div className="relative min-h-[700px] rounded-2xl flex flex-col justify-center items-center text-white overflow-hidden">
           <Image
             src={bgImage}
@@ -214,7 +223,7 @@ export default function Home() {
         </div>
       </main>
 
-      <div className="container mx-auto mt-40 h-[1000px]">
+      <div className="container mx-auto pt-40 h-[1000px] bg-white">
         <div className="flex flex-col">
           <h3 className="text-4xl px-32 text-center pb-8">
             Искусственный интеллект анализирует данные и точно предсказывает
@@ -236,57 +245,6 @@ export default function Home() {
               </div>
             ))}
           </div>
-
-          <button
-            onClick={() => setIsLoading(!isLoading)}
-            className="w-56 px-8 py-3 bg-[#81c27e] text-black rounded-2xl 
-  hover:bg-[#759b73] active:scale-95 transition-all 
-  duration-200 ease-in-out shadow-lg cursor-pointer flex justify-center items-center gap-2 mx-auto"
-          >
-            {isLoading ? (
-              <span className="flex items-center">
-                Загрузка
-                <span
-                  className="dot"
-                  style={{
-                    animation: "blink 1.5s infinite",
-                    animationDelay: "0s",
-                  }}
-                >
-                  .
-                </span>
-                <span
-                  className="dot"
-                  style={{
-                    animation: "blink 1.5s infinite",
-                    animationDelay: "0.3s",
-                  }}
-                >
-                  .
-                </span>
-                <span
-                  className="dot"
-                  style={{
-                    animation: "blink 1.5s infinite",
-                    animationDelay: "0.6s",
-                  }}
-                >
-                  .
-                </span>
-              </span>
-            ) : (
-              "Загрузить будущее"
-            )}
-
-            <style>
-              {`
-      @keyframes blink {
-        0%, 100% { opacity: 0; }
-        50% { opacity: 1; }
-      }
-    `}
-            </style>
-          </button>
         </div>
       </div>
     </>
